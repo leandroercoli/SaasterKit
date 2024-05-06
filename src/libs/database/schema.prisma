@@ -1,0 +1,50 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+}
+
+datasource db {
+  provider  = "postgresql" // Replace with your database provider
+  url       = env("SUPABASE_DATABASE_URL")
+  directUrl = env("SUPABASE_DIRECT_URL")
+}
+
+// -------------------------------------- Boilerplate models
+
+// User - Associated with a clerk user
+model User {
+  id              String       @id @default(cuid())
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  clerkUserId     String?      @unique
+  defaultCurrency CurrencyEnum @default(USD)
+  Todos           TodoItem[]
+}
+
+// A Todo item
+model TodoItem {
+  id          String           @id @default(cuid())
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  title       String
+  description String?
+  category    TodoItemCategoryEnum @default(UNSPECIFIED)
+  dueDate     DateTime
+  done        Boolean          @default(false)
+  User        User             @relation(fields: [userId], references: [id])
+  userId      String
+}
+
+// Todo category enum
+enum TodoItemCategoryEnum {
+  WORK
+  PERSONAL
+  SHOPPING
+  UNSPECIFIED
+}
+
+// Currency enum
+enum CurrencyEnum {
+  USD
+  ARS
+}
