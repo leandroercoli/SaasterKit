@@ -1,4 +1,8 @@
-import { ToastProvider, TooltipProviderComponent } from '@/libs/providers';
+import {
+    GoogleAnalytics,
+    ToastProvider,
+    TooltipProviderComponent,
+} from '@/libs/providers';
 import { ThemeProvider } from '@/libs/providers/theme-provider';
 import { ClerkLoaded, ClerkLoading, ClerkProvider } from '@clerk/nextjs';
 import { Analytics } from '@vercel/analytics/react';
@@ -65,6 +69,7 @@ export default async function RootLayout({
                             <ClerkLoaded>{children}</ClerkLoaded>
                             <ToastProvider />
                             <Analytics />
+                            <GoogleAnalytics />
                         </ThemeProvider>
                     </body>
                 </ClerkProvider>
