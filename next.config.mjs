@@ -14,7 +14,7 @@ nextConfig = withNextra(nextConfig);
 
 // Check if the environment variables for Sentry are set. If they are, enable Sentry.
 const sentryEnabled =
-    process.env.SENTRY_ORG && process.env.SENTRY_PROJECT && SENTRY_DSN;
+    process.env.SENTRY_ORG && process.env.SENTRY_PROJECT && process.env.SENTRY_DSN;
 if (sentryEnabled) {
     nextConfig = withSentryConfig(
         nextConfig,
