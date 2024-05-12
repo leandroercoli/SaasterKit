@@ -1,0 +1,50 @@
+import { Steps } from 'nextra/components';
+
+# Using Resend for Email Services
+
+In this project, we leverage Resend as the email service provider to handle email communication and notifications within the application. 
+
+## Why Resend?
+
+-   **Reliable Email Delivery**: Resend ensures reliable email delivery and notification services, enabling seamless communication with users and customers.
+-   **Easy Integration**: Integrating Resend into the project is straightforward.
+-   **Customizable Email Templates**: Resend offers customizable email templates and design options, allowing for tailored and on-brand email communications with users.
+
+## Configuring Resend
+
+To integrate Resend with the project, you need to acquire an API key by following the guidelines provided in the Resend official documentation. This API key allows the application to authenticate with the Resend email services and send email notifications to users.
+
+<Steps>
+### Obtaining API Key
+
+Sign into your Resend account and [create an API key](https://resend.com/api-keys). Update your `env` file with the new key:
+
+```
+RESEND_API_KEY=
+```
+
+### Sending Emails
+
+The `sendEmail` utility function facilitates the process of sending emails through Resend. By utilizing this function, you can trigger email notifications and deliver messages to users from within the project.
+
+```javascript
+import { sendEmail } from '@/libs/resend/sendEmail';
+
+async function onSendEmail() {
+    const { data, error } = await sendEmail({
+        to: 'user@emample.com',
+        subject: 'Hey there!',
+        html: '<p>Hello <strong>world</strong>!</p>',
+    });
+
+    if (error) {
+        throw new Error(error);
+    }
+
+    return data;
+}
+```
+
+</Steps>
+
+An example API POST endpoint is provided under `/app/api/admin/resend`.

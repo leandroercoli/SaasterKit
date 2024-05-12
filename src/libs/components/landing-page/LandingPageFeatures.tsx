@@ -33,17 +33,7 @@ export function LandingPageFeatures() {
             description: t('landing.features.sentry_description'),
         },
         {
-            title: (
-                <div className="flex items-start justify-between">
-                    <span>MDX Docs</span>
-                    <Badge
-                        variant="secondary"
-                        className="ml-2 whitespace-nowrap"
-                    >
-                        {t('landing.features.coming_soon')}
-                    </Badge>
-                </div>
-            ),
+            title: 'MDX Docs',
             description: t('landing.features.mdx_description'),
         },
         {

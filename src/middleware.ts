@@ -11,6 +11,11 @@ export default authMiddleware({
             return;
         }
 
+        // Only execute the locale middleware if the request is not for the docs
+        if (req.url.match(/\/docs(.*)/)) {
+            return;
+        }
+
         // Execute the locale middleware
         return localeMiddleware(req);
     },

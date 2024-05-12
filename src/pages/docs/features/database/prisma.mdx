@@ -1,0 +1,98 @@
+# Database Management with Prisma
+
+This project utilizes Prisma as the ORM (Object-Relational Mapping) tool to interact with the PostgreSQL database. However, Prisma can be easily configured to work with other databases supported by the tool, making it flexible and adaptable to different project requirements without significant changes.
+
+## Updating the Schema
+
+To update the database schema in this project, you can make changes to the `schema.prisma` file located in the `/libs/database` directory. Define your model structures and relationships within this schema file, and then follow the steps below to generate and migrate the schema changes:
+
+### Generating and Migrating the Schema
+
+1. To generate Prisma client based on the schema changes, run:
+
+```bash
+npm run prisma-generate
+# or
+yarn prisma-generate
+```
+
+2. To apply the schema changes to the database, run:
+
+```bash
+npm run prisma-migrate
+# or
+yarn prisma-migrate
+```
+
+## Why Prisma?
+
+Prisma offers several advantages for database management, including:
+
+-   **Type-safe Database Access**: Prisma provides a type-safe API for interacting with the database, reducing the likelihood of runtime errors and ensuring data consistency.
+
+-   **Automatic Query Generation**: Prisma generates efficient database queries based on your defined models and relationships, simplifying the data retrieval process and improving performance.
+
+-   **Schema Migrations**: Prisma supports schema migrations, allowing for seamless updating and versioning of the database schema as the application evolves.
+
+## Working with Prisma in Next.js Components
+
+Using Prisma in a Next.js project is seamless and intuitive. Within an asynchronous Next.js component, you can fetch data from the database using Prisma's methods like so:
+
+```javascript
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+export async function getData() {
+    return await prisma.user.findMany({ ... });
+}
+
+export default function MyComponent() {
+    const data = await getData();
+
+    // Use the fetched data in your component
+}
+```
+
+By leveraging Prisma within async Next.js components, you can efficiently retrieve and manipulate data from the database, enhancing the responsiveness and functionality of your SaaS application.
+
+## Secure Database Functions with Utility Helpers
+
+In this project, you can find examples of secure database functions in the `/libs/database/functions` folder. These functions leverage utility helpers to ensure enhanced security and data integrity by managing user authentication and authorization within database operations.
+
+### Automatic User Authentication Checks
+
+The utility functions included in the `/libs/database/utils.ts` file provide automated checks to verify user authentication before performing database operations. By incorporating these checks, you can prevent unauthorized access and ensure that only authenticated users can interact with the database.
+
+### Enhanced Error Handling
+
+In addition to authentication checks, you can utilize the Zod schema validation library to validate data before updating the database. By integrating Zod into your database operations, you can ensure that incoming data meets the specified schema requirements, reducing the risk of invalid or incomplete data being persisted in the database. Here's an example of how you can use Zod for schema validation:
+
+```javascript
+import { z } from 'zod';
+
+const userSchema = z.object({
+    name: z.string().min(2),
+    email: z.string().email(),
+    age: z.number().min(18),
+});
+
+const validateUserData = (data) => {
+    const validatedData = userSchema.parse(data);
+    return validatedData;
+};
+
+const userData = {
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    age: 25,
+};
+
+try {
+    const validatedUser = validateUserData(userData);
+    // Proceed with updating the database using the validated user data
+} catch (error) {
+    console.error(error.errors);
+    // Handle validation errors
+}
+```

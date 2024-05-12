@@ -1,0 +1,17 @@
+# Showcase: Dashboard App
+
+The example application included in this project under `/app` is a dashboard application to manage todo items, demonstrating the seamless integration of Prisma on both the server and client sides. The dashboard exemplifies the implementation of server-side rendering with Prisma for fetching data and the use of SWR pagination for efficient data retrieval and display on the client side.
+
+## Features of the Dashboard Example App
+
+### Server-Side Data Fetching with Prisma
+
+The dashboard leverages Prisma for server-side data fetching, demonstrating how to retrieve todo items stored in the database and render them on the application interface. 
+
+Check out an example of server side data fetching on `/app/[locale]/(dashboard)/dashboard/page.tsx`.
+
+### SWR Pagination for Client-Side Data Handling
+
+SWR pagination is used in the dashboard example app to manage data fetching and pagination on the client side. This approach optimizes data loading and enables users to navigate through todo items efficiently without overwhelming the application with unnecessary data retrieval requests.
+
+Check out an example of client side fetching for data pagination on the `TodoPageView` component.

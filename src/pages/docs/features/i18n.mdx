@@ -1,0 +1,69 @@
+import { FileTree } from 'nextra/components';
+
+# Internationalization (i18n)
+
+In this project, we have integrated internationalization (i18n) using the `next-international` library to facilitate the creation of multilingual applications.
+
+## Why `next-international`?
+The structured organization of i18n configuration, the availability of translations on both server and client sides, and the ease of utilizing translations in components through the `useI18n` hook make managing language support and localization a straightforward and efficient process within the project.
+
+## Usage
+
+### Switching the Language
+
+The `LocaleSelector` component is available for language selection, and routes are configured to automatically redirect users to the appropriate translation.
+
+### Creating New Translations
+
+Adding new translations is very simple:
+
+1. Create a new language file (e.g., `/fr.ts`) within the `libs/locales` directory and populate it with the key-value pairs for the desired language.
+2. Then, import the new language file from the `/libs/locales/server` and `/libs/locales/client` files.
+3. Add the new language abbreviation to the `LOCALES` constant on `/libs/locales/locale-middleware` file. The application will automatically recognize and incorporate the new translations for use in the user interface.
+
+<FileTree>
+    <FileTree.Folder name="libs" defaultOpen>
+        <FileTree.Folder name="locales" defaultOpen>
+            <FileTree.File name="client.ts" />
+            <FileTree.File name="en.ts" />
+            <FileTree.File name="es.ts" />
+            <FileTree.File name="locale-middleware.ts" />
+            <FileTree.File name="server.ts" />
+        </FileTree.Folder>
+    </FileTree.Folder>
+</FileTree>
+
+### Accessing Translations
+
+To access translations within components, you can utilize the `useI18n` hook or the `getI18n` function, both provided by the 'next-international' library. These allow you to retrieve translated strings based on the current language settings, enabling you to dynamically display content in the appropriate language.
+
+##### From Client components
+
+```javascript
+'use client'
+import { useI18n } from '@/libs/locales/client';
+
+// Client component
+export default function MyClientComponent() {
+    const t = useI18n();
+
+    return <h1>{t('my.translation.key')}</h1>;
+}
+```
+
+##### From Server components
+
+```javascript
+import { getI18n } from '@/libs/locales/server';
+
+// Server component
+export default async function MyServerComponent() {
+    const t = await getI18n();
+
+    return <h1>{t('my.translation.key')}</h1>;
+}
+```
+
+### Automatic Translation Routing
+
+By grouping all routes under the `[locale]` folder, users are automatically redirected to the correct translation based on their language preferences. The application handles routing seamlessly, ensuring that users access the appropriate version of the content without manual intervention.

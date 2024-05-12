@@ -1,0 +1,24 @@
+# Google Analytics
+
+This project utilizes Google Analytics to get data-driven, detailed insights about the traffic and user interactions on your website, enabling you to make informed decisions to improve and optimize your user's experience.
+
+## Why Google Analytics?
+
+It is one of the most popular digital analytics software. It allows you to analyze in-depth detail about the visitors on your website.
+
+-   **Understand Your Audience**: Google Analytics provides demographic details, interests, and behaviors of your site's visitors, helping you tailor your content and design to better meet their needs.
+-   **Track User Interactions**: From page views and clicks to user journey mapping, you get a clear view of how users interact with your site.
+-   **Optimize Your Site**: Using the data from Google Analytics, you can optimize your website's performance and improve conversion rates.
+-   **SEO Insights**: GA helps you see which keywords are bringing traffic to your site, allowing for better SEO strategy planning.
+
+## Configuring Google Analytics
+
+First, go to [Google Analytics](https://analytics.google.com), set up an account, and create a Google analytics project to get a **Measurement ID**. It should look something like G-XXXXXXXXXX.
+
+Then, update your `env` file with the new key:
+
+```
+NEXT_PUBLIC_MEASUREMENT_ID=
+```
+
+That's it! We have already added a `<GoogleAnalytics />` component on the root layout for you (`app/layout.tsx`), which loads the script that connects with Google Analytics.

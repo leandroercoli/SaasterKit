@@ -1,0 +1,12 @@
+{
+    "nextjs": "Next.js 14",
+    "database": "Database",
+    "authentication": "Authentication",
+    "ui-themes": "UI & Themes",
+    "i18n": "i18n",
+    "cookies": "Cookies",
+    "emails": "Emails",
+    "errors": "Error Handling",
+    "google-analytics": "Google Analytics",
+    "mdx-documentation": "MDX Documentation"
+}

@@ -1,0 +1,32 @@
+# Error Handling with Sentry
+
+In this project, we utilize Sentry for error monitoring and tracking to ensure robust error handling and proactive issue identification within the application. With Sentry, you can gain insights into errors, exceptions, and crashes. Follow the steps below to set up Sentry.
+
+## Why Sentry?
+
+-   **Proactive Issue Detection**: Sentry helps in proactively identifying errors and exceptions, allowing you to address issues before users encounter them.
+-   **Diagnostic Insights**: Detailed error reports and diagnostic insights provided by Sentry assist in pinpointing the root cause of errors and facilitating resolution.
+-   **Improved User Experience**: By promptly handling errors and preventing crashes, Sentry contributes to enhancing the overall user experience of the application.
+
+## Configuration
+
+1. **Create a Sentry Account**: Sign up for a Sentry account if you don't already have one.
+2. **Obtain DSN**: Retrieve the unique Data Source Name (DSN) provided by Sentry for your project.
+3. **Update the `env` File**: Update the following entries in your `env` file:
+
+```
+SENTRY_DSN=
+SENTRY_ORG=
+SENTRY_PROJECT=
+```
+
+4. **Sentry wizard**: Run the following command to create the `.sentryclirc` file with an auth token:
+    ```
+    npx @sentry/wizard@latest -i nextjs
+    ```
+
+## Error Handling Pages
+
+We set up `global-error.tsx` and `error.tsx` pages to capture and display errors gracefully. These pages are designed to provide a user-friendly and consistent error experience, ensuring that users are informed of any encountered issues.
+
+By being under the `[locale]` route, the `error.tsx` page can display **localized error messages**.

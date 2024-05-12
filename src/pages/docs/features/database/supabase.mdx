@@ -1,0 +1,20 @@
+# Integrating Supabase into the Project
+
+In this template, we leverage Supabase as the backend database service to manage and interact with the PostgreSQL database. To incorporate Supabase into your project, follow the steps below to obtain the required environment variables from the Supabase dashboard.
+
+## Why Supabase?
+
+- **Real-time Database**: Supabase offers real-time capabilities, allowing you to subscribe to changes in the database and receive live updates in your application.
+- **Authentication and Authorization**: With built-in authentication services, Supabase simplifies user management and access control for your application.
+- **Serverless Functions**: Utilize serverless functions provided by Supabase for custom business logic and backend operations without managing infrastructure.
+
+By integrating Supabase into your project and configuring the required environment variables, you can enhance your SaaS application with a scalable and feature-rich backend infrastructure. Refer to the Supabase documentation for detailed guidelines and best practices on utilizing the platform effectively in your project.
+
+## Configuring Environment Variables
+
+Follow the [official Supabase docs](https://supabase.com/partners/integrations/prisma) to update your `.env` file with the following entries:
+
+```
+SUPABASE_DATABASE_URL=your_supabase_database_url
+SUPABASE_DIRECT_URL=your_supabase_direct_url
+```

@@ -1,0 +1,58 @@
+# Authentication with Clerk
+
+This project utilizes Clerk, an identity management platform that simplifies the process for authentication, providing a seamless and secure user authentication flow for your application.
+
+## Why Clerk?
+
+Clerk offers several advantages for authentication in your project:
+
+-   **Ease of Implementation**: With Clerk, you can delegate the complex authentication logic and user management tasks to Clerk's platform, allowing you to focus on developing other features of your application.
+-   **Client-side and Server-side Integration**: Clerk provides easy-to-use utilities for authentication on both the client and server sides, enabling a consistent and streamlined authentication experience across your application.
+
+## Configuring Clerk
+
+To set up authentication with Clerk in your Next.js project, follow the steps outlined in the [official documentation](https://clerk.com/docs/quickstarts/nextjs#set-your-environment-variables) to obtain the following keys:
+
+```
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+```
+
+These keys are essential for establishing a secure connection with Clerk's authentication services and enabling user authentication in your application.
+
+### Setting Up Social Connections
+
+Integrate social connection authentication services with Clerk for enhanced functionality and features in your application. [Follow the documentation](https://clerk.com/docs/authentication/social-connections/overview) to configure additional authentication services and streamline user management processes.
+
+## Using Clerk for Authentication
+
+We link every Clerk user ID with a database user to leverage additional user data and attributes stored in the database for enhanced user management and customization. You can find the implementation for this under `/app/api/webhooks/clerk`.
+
+### Server-side Authentication
+
+To retrieve the signed-in user from the server side, you can use the custom `getSignedInUser` utility function provided in the project. This function communicates with Clerk's services to fetch the authenticated user information and retrieves the associated user created in our database.
+
+### Client-side Authentication
+
+On the client side, you can use the custom `useSignedInUser` utility to access the signed-in user's data in your client-side components.
+
+### Admin Authentication
+
+Utilize the `NEXT_PUBLIC_AUTHOR_EMAIL` environment variable available in the project to identify and authenticate requests from the project's author. This variable can be used to enable admin functionalities, such as setting up boilerplate APIs and implementing administrative features within the application.
+Explore the examples provided under `/app/api/admin` to access, customize or extend boilerplate APIs and admin functionalities within the project.
+
+## Webhooks 
+
+In this project, we use webhooks to trigger the creation of a new user in Supabase whenever a user is created through Clerk's authentication service. By setting up webhooks, you can automate user creation processes and maintain synchronization between Clerk and Supabase user databases seamlessly.
+
+### Setting Up Webhooks
+
+To implement the webhook functionality for user creation:
+
+1. **Configure Clerk Webhooks**: Set up webhooks in Clerk to listen for user creation events and trigger a webhook notification when a new user is created.
+
+2. **Handle Webhook Events**: Create a webhook handler in your project to receive the webhook notifications from Clerk. In the handler, implement the logic to create a new user record in Supabase based on the data received from the webhook event.
+
+3. **Test Locally**: To test webhook functionality locally, use tools like `localtunnel` to expose your localhost to the internet. This allows Clerk's webhooks to communicate with your local development server and trigger the user creation process in Supabase.
+
+For detailed instructions on setting up webhooks with Clerk and integrating them with Supabase user creation processes, refer to [the official Clerk documentation](https://clerk.com/blog/webhooks-getting-started) and the resources provided on their website.

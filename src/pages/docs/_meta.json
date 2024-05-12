@@ -1,0 +1,22 @@
+{
+    "index": "Introduction",
+    "get-started": "Get Started",
+    "features": "Features",
+    "upcoming-features": "Upcoming Features",
+    "deployment": "Deployment",
+    "-- showcase": {
+        "type": "separator",
+        "title": "Showcase"
+    },
+    "landing-page": "Landing Page",
+    "dashboard": "Dashboard App",
+    "-- more": {
+        "type": "separator",
+        "title": "More"
+    },
+    "contact-link": {
+        "title": "Contact ↗",
+        "href": "https://www.linkedin.com/in/leandroercoli/",
+        "newWindow": true
+    }
+}

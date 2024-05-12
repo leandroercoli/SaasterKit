@@ -1,0 +1,34 @@
+# Handling Cookies with `cookies-next`
+
+We leverage the `cookies-next` library to manage cookies effectively within a Next.js application, both in client and server components. The `cookies-next` library, compatible with Next.js 13 and above, simplifies the process of getting, setting, and removing cookies.
+
+## Usage
+
+The library can be utilized in various contexts across the project. Find the entire documentation [here](https://www.npmjs.com/package/cookies-next).
+
+### Client Components
+
+```
+'use client'
+import { getCookies, setCookie, deleteCookie, getCookie } from 'cookies-next';
+
+getCookies();
+getCookie('key');
+setCookie('key', 'value');
+deleteCookie('key');
+```
+
+### Server Components
+
+```
+import { setCookie, getCookie, getCookies, deleteCookie, hasCookie } from 'cookies-next';
+import { cookies } from 'next/headers';
+
+getCookie('test1', { cookies });
+getCookies({ cookies });
+hasCookie('test1', { cookies });
+```
+
+## Functional Example: Currency Selection
+
+A functional example for selecting and persisting the currency selection is available under the `/libs/cookies/currency` folder in the project. This example showcases the usage of `cookies-next` for managing currency preferences on both the client and server sides, providing a comprehensive demonstration of how to effectively handle and persist user selections across different application layers.
