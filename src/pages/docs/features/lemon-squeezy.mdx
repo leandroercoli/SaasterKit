@@ -1,0 +1,72 @@
+# Payment Processing with Lemon Squeezy
+
+This project uses Lemon Squeezy, a powerful payment processor platform, to handle all payment transactions securely and efficiently within your application.
+
+## Why Lemon Squeezy?
+
+Lemon Squeezy brings several benefits to managing payments in your project:
+
+-   **Simple Integration**: Integration with Lemon Squeezy is straightforward, allowing you to quickly set up and start accepting payments without hassle.
+-   **Comprehensive Features**: With built-in support for subscriptions, one-time payments, and more, Lemon Squeezy offers a robust set of features to manage various payment scenarios.
+-   **Secure Transactions**: Lemon Squeezy ensures secure handling of payment information, providing peace of mind for both you and your users.
+
+## Configuring Lemon Squeezy
+
+Lemon Squeezy is already pre-configured to work out-of-the-box with your API keys.
+
+1. **Create a Lemon Squeezy Account**: Sign up for an account at [Lemon Squeezy](https://lemonsqueezy.com).
+2. **Generate API Keys**: Navigate to the API keys section in your Lemon Squeezy dashboard to generate the following keys and add them to your env file:
+
+```
+LEMONSQUEEZY_API_KEY=
+LEMONSQUEEZY_STORE_ID=
+LEMONSQUEEZY_WEBHOOK_SECRET=
+```
+
+### Webhooks
+
+In your Lemon Squeezy dashboard, configure a new webhook URL to point to your server endpoint, and select the events you want to receive.
+
+On this kit, a route handler has already been set up on `/api/webhooks/lemonsqueezy`.
+
+### Managing subscriptions
+
+You can find a full working example for managing subscriptions on this kit. First, make sure you set up a store on Lemon Squeezy and add some product variants.
+
+Starting from the landing page 'Pricing' section, the user can sign up and purchase a subscription. Then, under the 'My Account' section on the dashboard, the user can manage the subscription by pausing or resuming payments, updating payment information, changing plans, or canceling the subscription.
+
+<img
+    src="/images/docs/billing-plans.png"
+    width="100%"
+    height="auto"
+    style={{
+        marginTop: '2em',
+        marginBottom: '2em',
+        borderRadius: '8px',
+        border: '2px solid rgba(0,0,0,0.1)',
+    }}
+/>
+
+<img
+    src="/images/docs/billing-active-subscription.png"
+    width="100%"
+    height="auto"
+    style={{
+        marginTop: '2em',
+        marginBottom: '2em',
+        borderRadius: '8px',
+        border: '2px solid rgba(0,0,0,0.1)',
+    }}
+/>
+
+<img
+    src="/images/docs/billing-change-plans.png"
+    width="100%"
+    height="auto"
+    style={{
+        marginTop: '2em',
+        marginBottom: '2em',
+        borderRadius: '8px',
+        border: '2px solid rgba(0,0,0,0.1)',
+    }}
+/>

@@ -6,4 +6,3 @@ export * from './LandingPageHeader';
 export * from './LandingPageHero';
 export * from './LandingPagePricing';
 export * from './LandingPageWaitlist';
-

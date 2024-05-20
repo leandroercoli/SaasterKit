@@ -46,12 +46,14 @@ export default {
         nav: {
             dashboard: 'Dashboard',
             todo: 'Todo',
+            my_account: 'My Account',
             settings: 'Settings',
             settings_nav: {
                 general: 'General',
                 account: 'Account',
                 premium: 'Premium',
             },
+            subscribe_now: 'Subscribe Now',
         },
         todo: {
             title: 'Todo Items',
@@ -119,6 +121,28 @@ export default {
                     'This action cannot be undone. This will permanently delete your account.',
             },
         },
+        my_account: {
+            no_subscriptions:
+                ' It appears that you do not have any subscriptions. Please sign up for a plan below.',
+            billing: 'Billing',
+            billing_description: 'View and manage your billing information.',
+            renews_on: 'Renews on {date}',
+            change_plan: 'Change Plans',
+            change_plan_description: 'Choose a plan that works for you.',
+            billing_actions: {
+                pause_payments: 'Pause Payments',
+                unpause_payments: 'Unpause Payments',
+                customer_portal: 'Customer Portal',
+                update_payment_method: 'Update Payment Method',
+                cancel_subscription: 'Cancel Subscription',
+                cancel_subscription_confirm:
+                    'Are you sure you want to cancel your subscription?',
+            },
+            no_plans_available: 'No plans available',
+            demo_only: 'Demo only',
+            demo_description:
+                'This feature is for demo purposes only. The store is in "test mode" and no real transactions will be processed. Never use real credit card information on this demo site. You can use the following test card numbers:',
+        },
     },
     // Landing page translations
     landing: {
@@ -157,16 +181,19 @@ export default {
                 'Accept online payments, manage subscriptions, and handle invoices with Lemon Squeezy.',
             coming_soon: 'Coming soon!',
         },
-
         pricing: {
             title: 'Pricing',
             description:
                 'Choose the plan that best suits your needs. All plans come with a set of pre-configured features to help you get started quickly.',
-
             get_started: 'Get Started',
+            sign_up: 'Sign Up to Get Started',
+            your_plan: 'Your Plan',
+            switch_to_plan: 'Switch to this plan',
             features: 'Features',
             coming_soon: 'Coming soon!',
             most_popular: 'Most Popular',
+            checkout_error:
+                'Error creating a checkout. Please try again later.',
             starter: {
                 title: 'Starter',
                 price: 'Free',
@@ -240,6 +267,14 @@ export default {
             docs: 'Docs',
             dashboard: 'Dashboard',
             sign_in_for_demo: 'Sign in for Demo',
+        },
+        lemon_squeezy: {
+            interval: {
+                day: 'Day',
+                week: 'Week',
+                month: 'Month',
+                year: 'Year',
+            },
         },
     },
 } as const;

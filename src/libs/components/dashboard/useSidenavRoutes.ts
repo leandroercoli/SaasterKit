@@ -1,5 +1,5 @@
 import { useI18n } from '@/libs/locales/client';
-import { Home, ListTodo, Settings } from 'lucide-react';
+import { Home, ListTodo, Settings, User } from 'lucide-react';
 
 // Sidenav routes with their translated labels, icons, and hrefs
 export function useSidenavRoutes() {
@@ -15,6 +15,11 @@ export function useSidenavRoutes() {
             label: t('dashboard.nav.todo'),
             Icon: ListTodo,
             href: '/dashboard/todo',
+        },
+        {
+            label: t('dashboard.nav.my_account'),
+            Icon: User,
+            href: '/dashboard/my-account',
         },
         {
             label: t('dashboard.nav.settings'),

@@ -46,12 +46,14 @@ export default {
         nav: {
             dashboard: 'Tablero',
             todo: 'Por hacer',
+            my_account: 'Mi cuenta',
             settings: 'Ajustes',
             settings_nav: {
                 general: 'General',
                 account: 'Cuenta',
                 premium: 'Premium',
             },
+            subscribe_now: 'Suscríbete',
         },
         todo: {
             title: 'Elementos por hacer',
@@ -120,6 +122,30 @@ export default {
                     'Esta acción no se puede deshacer. Esto eliminará permanentemente tu cuenta.',
             },
         },
+        my_account: {
+            no_subscriptions:
+                'Parece que no tienes suscripciones. Por favor, regístrate en un plan a continuación.',
+            billing: 'Facturación',
+            billing_description:
+                'Ver y administrar tu información de facturación.',
+            renews_on: 'Renueva el {date}',
+            change_plan: 'Cambiar plan',
+            change_plan_description:
+                'Elige un plan que se adapte a tus necesidades.',
+            actions: {
+                pause_payments: 'Pausar pagos',
+                unpause_payments: 'Reanudar pagos',
+                customer_portal: 'Portal del cliente',
+                update_payment_method: 'Actualizar método de pago',
+                cancel_subscription: 'Cancelar suscripción',
+                cancel_subscription_confirm:
+                    '¿Estás seguro de que deseas cancelar tu suscripción?',
+            },
+            no_plans_available: 'No hay planes disponibles.',
+            demo_only: 'Solo demo',
+            demo_description:
+                'Esta función es solo para fines de demostración. La tienda está en "modo de prueba" y no se procesarán transacciones reales. Nunca uses información de tarjetas de crédito reales en este sitio de demostración. Puedes usar los siguientes números de tarjeta de prueba:',
+        },
     },
     // Landing page translations
     landing: {
@@ -163,9 +189,14 @@ export default {
             description:
                 'Elige el plan que mejor se adapte a tus necesidades. Todos los planes vienen con un conjunto de características preconfiguradas para ayudarte a comenzar rápidamente.',
             get_started: 'Comenzar',
+            sign_up: 'Regístrate para comenzar',
+            your_plan: 'Tu plan',
+            switch_to_plan: 'Cambiar a este plan',
             features: 'Características',
             coming_soon: '¡Próximamente!',
             most_popular: 'Más popular',
+            checkout_error:
+                'Error al crear un pago. Por favor, inténtalo de nuevo más tarde.',
             starter: {
                 title: 'Starter',
                 price: 'Gratis',
@@ -240,6 +271,14 @@ export default {
             docs: 'Docs',
             dashboard: 'Tablero',
             sign_in_for_demo: 'Iniciar sesión para demo',
+        },
+        lemon_squeezy: {
+            interval: {
+                day: 'Día',
+                week: 'Semana',
+                month: 'Mes',
+                year: 'Año',
+            },
         },
     },
 } as const;

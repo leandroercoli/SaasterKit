@@ -1,6 +1,6 @@
 {
     "name": "saasterkit",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "private": true,
     "scripts": {
         "dev": "npm run prisma-generate && next dev",
@@ -17,6 +17,7 @@
     "dependencies": {
         "@clerk/nextjs": "^4.29.7",
         "@hookform/resolvers": "^3.3.4",
+        "@lemonsqueezy/lemonsqueezy.js": "^2.2.0",
         "@prisma/client": "^5.9.1",
         "@radix-ui/react-accordion": "^1.1.2",
         "@radix-ui/react-alert-dialog": "^1.0.5",
@@ -40,7 +41,7 @@
         "@sentry/nextjs": "^7.113.0",
         "@vercel/analytics": "^1.2.2",
         "class-variance-authority": "^0.7.0",
-        "clsx": "^2.1.0",
+        "clsx": "^2.1.1",
         "cookies-next": "^4.1.1",
         "date-fns": "^3.6.0",
         "lodash": "^4.17.21",
@@ -60,7 +61,7 @@
         "resend": "^3.2.0",
         "rsuite": "^5.59.2",
         "swr": "^2.2.5",
-        "tailwind-merge": "^2.2.2",
+        "tailwind-merge": "^2.3.0",
         "tailwindcss-animate": "^1.0.7",
         "zod": "^3.22.4"
     },

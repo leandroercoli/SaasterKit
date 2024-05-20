@@ -26,9 +26,6 @@ export default function SettingsPageView() {
                         {t('dashboard.nav.settings_nav.general')}
                     </Link>
                     <Link href="#">
-                        {t('dashboard.nav.settings_nav.account')}
-                    </Link>
-                    <Link href="#">
                         {t('dashboard.nav.settings_nav.premium')}
                     </Link>
                 </nav>

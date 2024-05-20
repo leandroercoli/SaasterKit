@@ -13,25 +13,27 @@ datasource db {
 
 // User - Associated with a clerk user
 model User {
-  id              String       @id @default(cuid())
-  createdAt       DateTime     @default(now())
-  updatedAt       DateTime     @updatedAt
-  clerkUserId     String?      @unique
-  defaultCurrency CurrencyEnum @default(USD)
+  id              String               @id @default(cuid())
+  createdAt       DateTime             @default(now())
+  updatedAt       DateTime             @updatedAt
+  clerkUserId     String?              @unique
+  email           String               @unique
+  defaultCurrency CurrencyEnum         @default(USD)
   Todos           TodoItem[]
+  Subscriptions   LsUserSubscription[]
 }
 
 // A Todo item
 model TodoItem {
-  id          String           @id @default(cuid())
-  createdAt   DateTime         @default(now())
-  updatedAt   DateTime         @updatedAt
+  id          String               @id @default(cuid())
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
   title       String
   description String?
   category    TodoItemCategoryEnum @default(UNSPECIFIED)
   dueDate     DateTime
-  done        Boolean          @default(false)
-  User        User             @relation(fields: [userId], references: [id])
+  done        Boolean              @default(false)
+  User        User                 @relation(fields: [userId], references: [id])
   userId      String
 }
 
@@ -47,4 +49,58 @@ enum TodoItemCategoryEnum {
 enum CurrencyEnum {
   USD
   ARS
+}
+
+// Subscription Plan from Lemon Squeezy
+model LsSubscriptionPlan {
+  id                 String               @id @default(cuid())
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  productId          Int
+  productName        String
+  variantId          Int                  @unique
+  name               String
+  description        String?
+  price              String
+  isUsageBased       Boolean              @default(false)
+  interval           String?
+  intervalCount      Int?
+  trialInterval      String?
+  trialIntervalCount Int?
+  sort               Int?
+  Subscriptions      LsUserSubscription[]
+}
+
+// Lemon Squeezy webhook event
+model LsWebhookEvent {
+  id              String   @id @default(cuid())
+  createdAt       DateTime @default(now())
+  eventName       String
+  processed       Boolean  @default(false)
+  body            Json
+  processingError String?
+}
+
+// Lemon Squeezy Subscription 
+model LsUserSubscription {
+  id                 String             @id @default(cuid())
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  lemonSqueezyId     String             @unique
+  orderId            Int
+  name               String
+  email              String
+  status             String
+  statusFormatted    String
+  renewsAt           String?
+  endsAt             String?
+  trialEndsAt        String?
+  price              String
+  isUsageBased       Boolean            @default(false)
+  isPaused           Boolean            @default(false)
+  subscriptionItemId String?
+  userId             String
+  User               User               @relation(fields: [userId], references: [id])
+  planId             String
+  SubscriptionPlan   LsSubscriptionPlan @relation(fields: [planId], references: [id])
 }

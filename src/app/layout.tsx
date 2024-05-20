@@ -1,5 +1,6 @@
 import {
     GoogleAnalytics,
+    LemonSqueezy,
     ToastProvider,
     TooltipProviderComponent,
 } from '@/libs/providers';
@@ -70,6 +71,7 @@ export default async function RootLayout({
                             <ToastProvider />
                             <Analytics />
                             <GoogleAnalytics />
+                            <LemonSqueezy />
                         </ThemeProvider>
                     </body>
                 </ClerkProvider>

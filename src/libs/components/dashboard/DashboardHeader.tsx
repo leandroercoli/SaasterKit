@@ -20,6 +20,7 @@ import { Sheet, SheetContent, SheetTrigger } from '../../ui/sheet';
 import { DarkModeToggle } from '../DarkModeToggle';
 import { GlobalCurrencySelector } from '../GlobalCurrencySelector';
 import { LocaleSelector } from '../LocaleSelector';
+import { SubscribeButton } from './SubscribeButton';
 import { useSidenavRoutes } from './useSidenavRoutes';
 
 // Sidenav routes base for the dashboard
@@ -117,6 +118,7 @@ export function DashboardHeader({
             <div className="relative ml-auto flex-1 md:grow-0 flex justify-end gap-4">
                 <GlobalCurrencySelector />
             </div>
+            <SubscribeButton />
             <SignedIn>
                 <UserButton />
             </SignedIn>

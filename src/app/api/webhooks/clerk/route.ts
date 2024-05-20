@@ -19,15 +19,26 @@ export async function POST(req: Request) {
         let user = null;
         switch (evt.type) {
             case 'user.created': {
+                const { email_addresses = [] } = evt.data;
+                const email = email_addresses?.[0]?.email_address ?? '';
+
+                if (!email)
+                    return NextResponse.json(
+                        { error: 'No email provided' },
+                        { status: 400 },
+                    );
+
                 user = await prisma.user.upsert({
                     where: {
                         clerkUserId,
                     },
                     update: {
                         clerkUserId,
+                        email,
                     },
                     create: {
                         clerkUserId,
+                        email,
                     },
                 });
                 break;
